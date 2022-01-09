@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup (
     name='re_roll',
-    version='0.0.1b',
+    version='0.0.2',
     license='GPL',
     author='Anon TG',
     author_email="justyouraveragejoe@outlook.com",

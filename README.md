@@ -3,7 +3,7 @@
 Treat a directory as a collection of "random-encounter" tables for use as a DM, GM, or Whatever-M for any tabletop game.
 Supports directories of arbitrary depth, as well as a very minimalist formatting code.
 
-[![PyPi](https://img.shields.io/badge/PyPI-v0.0.1-blue.svg)](https://pypi.org/project/re-roll/)
+[![PyPi](https://img.shields.io/badge/PyPI-v0.0.2-blue.svg)](https://pypi.org/project/re-roll/)
 
 ## Install
 
