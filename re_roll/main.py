@@ -122,7 +122,7 @@ def roll(directory, quiet_mode, no_ANSI_mode):
             print(os.path.basename(selection[:-1]) + "(" + rollformat + ")>", end="")
         return roll(selection, quiet_mode, no_ANSI_mode)
 
-if __name__ == "__main__":
+def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--dir", default = None, help="the folder to roll from")
@@ -169,6 +169,6 @@ if __name__ == "__main__":
 
     print(text)
 
-
-
+if __name__ == "__main__":
+    main()
 

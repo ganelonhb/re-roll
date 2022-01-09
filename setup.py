@@ -4,12 +4,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_desc = fh.read()
 
 setup (
-    name='re-roll',
-    version='0.0.1',
+    name='re_roll',
+    version='0.0.1b',
     license='GPL',
     author='Anon TG',
     author_email="justyouraveragejoe@outlook.com",
-    packages=find_packages("re_roll"),
+    packages=find_packages(),
     description="CLI-based random encounter roller for Tabletop RPGs",
     long_description=long_desc,
     long_description_content_type="text/markdown",
@@ -24,8 +24,8 @@ setup (
     ],
     entry_points={
         "console_scripts" : [
-            "re-roll = re-roll:main",
-        ]
+            "re-roll = re_roll:main",
+        ],
     },
     python_requires=">=3.9.9"
 )
