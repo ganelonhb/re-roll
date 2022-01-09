@@ -7,16 +7,42 @@ Supports directories of arbitrary depth, as well as a very minimalist formatting
 
 ## Install
 
+First, ensure your python version is greater than or equal to version 3.9.9, then run:
+
 ```
 python -m pip install re-roll
 ```
+
+## Windows Install
+
+Same as above. However, if you get this output when trying to run **re-roll**:
+```
+'re-roll' is not recognized as an internal or external command, operable program or batch file.
+```
+
+then you need to add your Python Scripts directory to your system environment PATH variable.
+
+You can find tutorials on how to do this online. Say you're running Python3.10 on your machine. Your Scripts directory
+is probably located in:
+```
+C:\Users\<your-user>\AppData\Local\Programs\Python\Python310\Scripts
+```
+
+You can check your Python version with the command:
+```
+python -v
+```
+
+Sometimes, your system is directed to the wrong version of Python when trying to use Python from the command line.
+While you are editing your System Environment Variables, ensure that the path pointing to your Python install
+is pointing to the most recent version that is installed on your machine.
 
 ## Usage
 
 Navigate to a directory containing an arbitrary number of subfolders, each containing any number of .txt files with
 the description of a random encounter within.
 
-Then  use the
+Then  use the:
 ```
 re-roll
 ```
@@ -77,8 +103,8 @@ re-roll -l
 
 in the above example would output:
 ```
-wilderness : /home/blahblahblah/encounters/5e/wilderness
-urban : /home/blahblahblah/encounters/5e/urban
+wilderness
+urban
 ```
 
 Providing a directory with the **-d** or **--dir** option also modified which dir is listed.
