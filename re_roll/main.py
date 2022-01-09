@@ -9,6 +9,8 @@ from sys import argv, exit
 import random
 
 
+SEPERATING_CHAR = '\\' if os.name == "nt" else '/'
+
 # A class that contains some ANSI escape sequences, for easier reading when used in code.
 class aformat:
     NORM = '\033[0m'
@@ -33,7 +35,14 @@ def build_dict_of_tables(directory):
     dictionary = {}
     for list_root, list_dirs, list_files in os.walk(directory):
         for list_dir in list_dirs:
-            dictionary[os.path.basename(list_dir)] = os.path.join(list_root,list_dir)
+            alias = os.path.basename(list_dir)
+            levels = os.path.join(list_root,list_dir).split(SEPERATING_CHAR)
+            idx = len(levels) - 3
+            while alias in dictionary:
+                alias = levels[idx] + "/" + alias
+                idx -= 1
+
+            dictionary[alias] = os.path.join(list_root,list_dir)
     return dictionary
 
 def validate_brackets(text):
@@ -106,7 +115,7 @@ def roll(directory, quiet_mode, no_ANSI_mode):
 
     if selection.endswith('.txt'):
         if not quiet_mode:
-            print(os.path.basename(selection) + "(" + rollformat + ")")
+            print(os.path.basename(selection) + "(" + rollformat + ")\n")
         return parse_encounter(selection, no_ANSI_mode)
     else:
         if not quiet_mode:
