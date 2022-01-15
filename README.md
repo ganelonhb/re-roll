@@ -3,7 +3,7 @@
 Treat a directory as a collection of "random-encounter" tables for use as a DM, GM, or Whatever-M for any tabletop game.
 Supports directories of arbitrary depth, as well as a very minimalist formatting code.
 
-[![PyPi](https://img.shields.io/badge/PyPI-v0.0.2-blue.svg)](https://pypi.org/project/re-roll/)
+[![PyPi](https://img.shields.io/badge/PyPI-v0.1.0-blue.svg)](https://pypi.org/project/re-roll/)
 
 ## Install
 
@@ -44,7 +44,7 @@ the description of a random encounter within.
 
 Then  use the:
 ```
-re-roll
+re-roll roll
 ```
 command to choose a random text file from within the directory.
 
@@ -61,7 +61,7 @@ For example, given the following directory structure:
 		* thieves.txt
 
 running **re-roll** from within **5e** will choose a text file from either wilderness or urban, while running
-**re-roll** within either subdirectories will only choose files within their selected folders.
+**re-roll roll** within either subdirectories will only choose files within their selected folders.
 
 Example output from running the program from within the above subdirectory:
 ```
@@ -76,7 +76,7 @@ top-level directory to traverse.
 
 You can provide another directory with the **-d** or **--dir** command line argument. For example:
 ```
-re-roll --dir ./wilderness
+re-roll roll --dir ./wilderness
 ```
 
 would only roll from the wilderness directory, provided of course that you are in the 5e directory (since the '.' denotes 'current working directory')
@@ -87,27 +87,28 @@ This program features a very simple parser that can format the output of your ra
 be useful to highlight important text like dice rolls or monster names. This feature is only supported by
 consoles that suport ANSI formatting escape sequences.
 
-Text encased in a set of {curly brackets} becomes *italicized*, while text encased in [square brackets] is **emboldened**.
+Text encased in a set of {curly brackets} becomes *italicized*, while text encased in \[square brackets\] is **emboldened**.
 
 You can disable this feature by running the program with the **--no_escape** option.
 
 ## List Mode
 
-Run the program with the **-l** or **--list** option to list all possible tables to roll from (i.e. all subfolders in the given, or
+Run the re-roll **list** module to list all possible tables to roll from (i.e. all subfolders in the given, or
 current working directory).
 
 For example, running:
 ```
-re-roll -l
+re-roll list
 ```
 
 in the above example would output:
 ```
-wilderness
-urban
+wilderness urban
 ```
 
 Providing a directory with the **-d** or **--dir** option also modified which dir is listed.
+
+For your convenience, some outputting options have been bundled with the list module. Use the help module as specified below to learn more.
 
 ## Specify a Table by Name
 
@@ -123,7 +124,7 @@ re-roll -t ghosts
 
 to:
 ```
-re-roll --dir ./monsters/by-source/tob-ii/by-cr/cr4/undead/ghosts
+re-roll {roll/list} --dir ./monsters/by-source/tob-ii/by-cr/cr4/undead/ghosts
 ```
 
 ## Quiet Mode
@@ -131,3 +132,11 @@ Normally, the output includes all the subfolders that were selected, as well as 
 
 Sometiems you just don't want to include that superfluous detail. Use the **--quiet** option to only output the selected encounter.
 
+## The Help Module
+
+Each module has a seperate help menu. You can access help menus as usual (by using **re-roll {module} -h**, or you can use the help module.
+For example, to get help on the list module, you would type:
+
+```
+re-roll help list
+```
